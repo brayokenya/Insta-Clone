@@ -1,20 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
+<nav class="navbar navbar-light bg-white sticky-top" style="box-shadow: 0 2px 4px 0 rgba(0,0,0,.2); min-height: 80px;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'postToday' %}"> <img src="/static/images/instagram.png" class="btn-btn"> </a>
 
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
-<body>
-    <nav class="navbar navbar-light bg-white sticky-top" style="box-shadow: 0 2px 4px 0 rgba(0,0,0,.2); min-height: 80px;">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="{% url 'postToday' %}"> <img src="/static/images/instagram.png" class="btn-btn"> </a>
-            </div>
         </div>
-    </nav>
+
+    </div>
+    <div class="col-sm-6 col-md-6">
+        {% if user.is_authenticated %}
+        <ul>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
+                          <span class="caret"></span>
+                      </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        <a href="{%url 'postToday'%}">Home</a>
+                    </li>
+                    <li>
+                        <a href="/accounts/password/change">Change Password</a>
+                    </li>
+                    <li>
+                        <a href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        {% else %}
+        <li>
+            <a class='btn btn-default' href="/accounts/login">Login</a>
+        </li>
+
+        {% endif %}
+    </div>
+</nav>
+
 </body>
 
 </html>
