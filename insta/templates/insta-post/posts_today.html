@@ -1,1 +1,25 @@
-{%extends 'insta-post/base.html'%} {% block content %} {{block.super}} {% endblock %}
+{%extends 'insta-post/base.html'%} {% block content %} {{block.super}}
+<div class="container">
+
+    <!-- Looping through insta   -->
+    {% for insta_item in insta %}
+
+    <div class="row">
+        <!-- displaying insta articles -->
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <h4 class="text-center"> {{ insta_item.user }} </h4>
+            <h4 class="text-center"> {{ insta_item.location }} </h4>
+            <h4 class="text-center"> {{ insta_item.caption }} </h4>
+            <img src="{{insta_item.photo_image.url}}" class="img-responsive" alt="Image">
+
+
+        </div>
+
+        {% empty %}
+        <div class="row">
+            <h2 class="text-center">Give them time to post</h2>
+        </div>
+        {% endfor %}
+
+    </div>
+    {% endblock %}
