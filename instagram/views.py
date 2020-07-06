@@ -33,7 +33,7 @@ def index(request):
 
     
 
-    return render(request, "instagrm/index.html", context={"posts":posts,
+    return render(request, "instagram/index.html", context={"posts":posts,
                                                            "current_user":current_user,
                                                            "current_profile":current_profile,
                                                            "post_form":post_form,
@@ -59,7 +59,7 @@ def post(request, id):
     else:
         comment_form = CommentForm()
 
-    return render(request, "instagrm/post.html", context={"post":post,
+    return render(request, "instagram/post.html", context={"post":post,
                                                           "current_user":current_user,
                                                           "current_profile":current_profile,
                                                           "comment_form":comment_form,
@@ -93,13 +93,13 @@ def search(request):
         except DoesNotExist:
             return HttpResponseRedirect(reverse("index"))
         
-        return render(request, "instagrm/search_results.html", context={"message":message,
+        return render(request, "instagram/search_results.html", context={"message":message,
                                                                         "users":searched_user,
                                                                         "profiles":searched_profile,
                                                                         "posts":posts})
     else:
         message = "You have not searched for any photo"
-        return render(request, "instagrm/search_results.html", context={"message":message})
+        return render(request, "instagram/search_results.html", context={"message":message})
 
 
 
@@ -108,7 +108,7 @@ def profile(request, id):
     user = User.objects.get(id=id)
     profile = UserProfile.objects.get(id=id)
     posts = Post.objects.filter(profile__id=id)[::-1]
-    return render(request, "instagrm/profile.html", context={"user":user,
+    return render(request, "instagram/profile.html", context={"user":user,
                                                              "profile":profile,
                                                              "posts":posts})
 

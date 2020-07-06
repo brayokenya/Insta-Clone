@@ -1,4 +1,4 @@
-"""instagrm_project URL Configuration
+"""instagram_project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from instagrm import views
+from instagram import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'', include('instagrm.urls')),
+    url(r'', include('instagram.urls')),
     url(r'^register/$',views.register,name='register'),
     url(r'^user_login/$',views.user_login,name='user_login'),
     url(r'^accounts/login/$',views.user_login,name='user_login'),
