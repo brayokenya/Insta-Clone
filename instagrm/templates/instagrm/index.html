@@ -1,0 +1,60 @@
+{%extends "instagrm/base.html"%} {%load staticfiles%} {%load bootstrap4%} {%block content%}
+
+<div class="container" style="margin-top:100px;">
+    <div class="row">
+        <div class="col-lg-2">
+        </div>
+        <div class="col-lg-8">
+            <p>
+                <button style="border: solid 2px #333; padding: 1em;" class="btn btn-dark btn-block mb-4 mx-auto" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <i class="fas fa-upload"></i> Upload
+                </button>
+            </p>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    <form action="{%url 'index'%}" method="POST">
+                        {%csrf_token%} {{post_form.as_p}}
+                        <button style="border: solid 2px #333; padding: 5px" type="submit" class="btn btn-dark btn-block">Post</button>
+                    </form>
+                </div>
+            </div>
+            <!-- <h1>{{current_profile}}</h1> -->
+            {%for post in posts%}
+            <div class="card">
+                <div class="card-body" style="display: flex;">
+                    <img src="{{post.user_profile.profile_pic}}" alt="profile pic" style="border-radius: 50%;" width="32" height="32" class="img-fluid">
+                    <a href="{%url 'profile' post.profile.id%}" style="color: #333;">
+                        <h5 class="card-title" style="padding-top: 10px; margin-left:10px">{{post.profile.username}}
+                        </h5>
+                    </a>
+                </div>
+                <img src="{{post.image.cdn_url}}" alt="" class="img-fluid">
+                <div class="card-body">
+                    <a href="{%url 'like' post.id%}">
+                        <i class="far fa-heart fa-lg" style="font-size: 30px; margin-right:10px; color:#fa6161"></i>
+                    </a>
+                    <a href="{%url 'post' post.id%}">
+                        <i class="far fa-comment fa-lg" style="font-size: 30px;"></i>
+                    </a>
+                </div>
+                <p class="card-text ml-4" style="font-weight: bolder;">{{post.likes}} likes</p>
+                <div class="ml-4 mb-3">
+                    <p class="card-text">{{post.caption}}</p>
+                </div>
+                <div class="ml-4">
+                    {%for comment in comments%} {%if comment.id == post.id%}
+                    <p class="card-text text-muted">{{comments|length}} comments</p>
+                    <p class="card-text mb-3"><span style="font-weight: bolder;">{{comment.user.username}} </span>{{comment.comment}}</p>
+                    {%endif%} {%endfor%}
+                    <p class="text-muted">{{post.date|timesince|upper}}</p>
+                </div>
+            </div>
+            {%endfor%}
+            <div class="loader"></div>
+        </div>
+        <div class="col-lg-2">
+        </div>
+    </div>
+</div>
+
+{%endblock%}
