@@ -1,7 +1,4 @@
-{%extends "instagrm/base.html"%}
-{%load static%}
-
-{%block content%}
+{%extends "instagram/base.html"%} {%load static%} {%block content%}
 <header style="margin-top: 80px;">
     <div class="container">
 
@@ -10,12 +7,8 @@
             <div class="profile-image">
 
                 {%if profile.profile_pic%}
-                <img src="{{profile.profile_pic.cdn_url}}"
-                    alt="" width="150" height="150" class="img-fluid">
-                {%else%}
-                <img src="{%static 'avatars/default.png'%}"
-                    alt="" width="150" height="150" class="img-fluid">
-                {%endif%}
+                <img src="{{profile.profile_pic.cdn_url}}" alt="" width="150" height="150" class="img-fluid"> {%else%}
+                <img src="{%static 'avatars/default.png'%}" alt="" width="150" height="150" class="img-fluid"> {%endif%}
 
             </div>
 
@@ -42,7 +35,7 @@
 
             <div class="profile-bio">
 
-                <p><span class="profile-real-name">{{user.first_name}} {{user.last_name}}</span></p> 
+                <p><span class="profile-real-name">{{user.first_name}} {{user.last_name}}</span></p>
                 <p>{{user_profile.bio}}</p>
 
             </div>
@@ -62,16 +55,13 @@
         <div class="gallery">
             {%for post in posts%}
             <div class="gallery-item" tabindex="0">
-                <img src="{{post.image.cdn_url}}"
-                    class="gallery-image" alt="">
+                <img src="{{post.image.cdn_url}}" class="gallery-image" alt="">
 
                 <div class="gallery-item-info">
 
                     <ul>
-                        <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i
-                                class="fas fa-heart" aria-hidden="true"></i> {{post.likes}}</li>
-                        <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i
-                                class="fas fa-comment" aria-hidden="true"></i> 0</li>
+                        <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> {{post.likes}}</li>
+                        <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 0</li>
                     </ul>
 
                 </div>
