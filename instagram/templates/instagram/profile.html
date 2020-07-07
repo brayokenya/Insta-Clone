@@ -7,17 +7,14 @@
             <div class="profile-image">
 
                 {%if profile.profile_pic%}
-                <img src="{{profile.profile_pic.cdn_url}}" alt="" width="150" height="150" class="img-fluid"> {%else%}
+                <img src="{{profile.profile_pic.url}}" alt="" width="150" height="150" class="img-fluid"> {%else%}
                 <img src="{%static 'avatars/default.png'%}" alt="" width="150" height="150" class="img-fluid"> {%endif%}
 
             </div>
 
             <div class="profile-user-settings">
 
-                <h1 class="profile-user-name">{{user.username}}</h1>
-                <!-- {%if user.is_authenticated%}
-                <button class="btn profile-edit-btn">Edit Profile</button>
-                {%endif%} -->
+                <h1 class="profile-user-name">{{user.profile}}</h1>
                 <button class="btn profile-settings-btn" aria-label="profile settings"><i class="fas fa-cog"
                         aria-hidden="true"></i></button>
 
@@ -71,7 +68,7 @@
         </div>
         <!-- End of gallery -->
 
-        <div class="loader"></div>
+
 
     </div>
     <!-- End of container -->
