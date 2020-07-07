@@ -42,24 +42,6 @@ def index(request):
                                                            "post_form":post_form,
                                                            "comments":comments})
 
-# def upload(request):
-#     current_user = request.user
-#     if request.method == 'POST':
-#         upload_form = PostForm(request.POST,request.FILES)
-#         if upload_form.is_valid():
-#             post = upload_form.save(commit=False)
-#             post.profile = current_user
-#             post.save()
-            
-
-#             return redirect('index')
-#         else:
-#             upload_form = PostForm()
-#             return render(request,'instagram/index.html',{'post_form':upload_form})
-
-
-
-
 def post(request, id):
     post = Post.objects.get(id = id)
     comments = Comment.objects.filter(post__id=id)
@@ -103,38 +85,34 @@ def like_post(request, id):
 
 @login_required
 def search(request):
-    if request.method == "GET":
-        user_list = User.objects.all()
-        user_filter = UserFilter(request.GET,queryset=user_list)
-       
-
-
+    if 'profile' in request.GET and request.GET["profile"]:
+        search_term = request.GET.get("profile")
+        searched_user = UserProfile.search_by_user(search_term)
+        message = f"{search_term}"
+        user = User.objects.all()
         context = {
-            'filter':user_filter,
+            "user":user,
+            "message":message,
+            "profile":searched_user
         }
         return render(request,'instagram/search_results.html',context)
 
-    
-    
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'instagram/search_results.html',{"message":message})
+
+
     # if request.method == "GET":
-    #     search_term = request.GET.get("search")
-    #     searched_user = User.objects.get(username = search_term)
-    #     try:
-    #         searched_profile = UserProfile.objects.get(id = searched_user.id)
-    #         posts = Post.objects.filter(profile__id=searched_user.id)[::-1]
-    #         message = "{}".format(search_term)
-    #     except ObjectDoesNotExist:
-    #         return HttpResponseRedirect(reverse("index"))
-        
-    #     return render(request, "instagram/search_results.html", context={"message":message,
-    #                                                                     "users":searched_user,
-    #                                                                     "profiles":searched_profile,
-    #                                                                     "posts":posts})
-    # else:
-    #     message = "You have not searched for any photo"
-    #     return render(request, "instagram/search_results.html", context={"message":message})
+    #     user_list = User.objects.all()
+    #     user_filter = UserFilter(request.GET,queryset=user_list)
 
+    #     context = {
+    #         'filter':user_filter,
+    #     }
+    #     return render(request,'instagram/search_results.html',context)
 
+    
+    
 
 @login_required
 def profile(request, id):

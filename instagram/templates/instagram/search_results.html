@@ -2,12 +2,9 @@
 <header style="margin-top: 80px;">
     <div class="container">
 
-        <form method="GET">
-            {{ filter.form.as_p}}
-            <button type="submit">Search</button>
-        </form>
+
         <ul>
-            {% for user in filter.qs %}
+            {% for user in users %}
             <li>{{ user.username }}</li>
             {% endfor %}
         </ul>
@@ -82,7 +79,7 @@
         </div>
         <!-- End of gallery -->
 
-        <div class="loader"></div>
+
 
     </div>
     <!-- End of container -->
