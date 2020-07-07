@@ -6,7 +6,7 @@
     padding-bottom: 10px;
 }
 
-body{
+body {
     font-family: 'Lato', sans-serif;
 }
 
@@ -55,7 +55,9 @@ nav a {
     float: right;
 }
 
+
 /*Setting Up Navbar Layouts*/
+
 nav .navbar-inverse {
     color: #000;
     background: #fff;
@@ -105,6 +107,7 @@ nav div.navbar-start .logo {
     opacity: 0.6;
     width: 30px;
 }
+
 
 /*Styling Search Textbox*/
 
@@ -161,7 +164,6 @@ nav form.search .search-textbox {
     -o-transition: all 0.5s cubic-bezier(0.21, 0.61, 0.36, 1);
     transition: all 0.5s cubic-bezier(0.21, 0.61, 0.36, 1);
     cursor: pointer;
-
 }
 
 nav form.search.focused .search-textbox {
@@ -236,7 +238,9 @@ nav form.search.focused.not-null .ico-btn.search-btn {
     transition-duration: 0.6s;
 }
 
+
 /*Styling Tabs*/
+
 nav .tabs .navbar-body li.active a {
     color: #333;
 }
@@ -263,7 +267,9 @@ nav .tabs .navbar-body li a:hover,
     color: #5bc0de;
 }
 
+
 /*Styling Tab Highlighter*/
+
 nav .tab-highlighter {
     height: 2px;
     width: 50px;
@@ -277,7 +283,9 @@ nav .tab-highlighter {
     transition: all 0.6s cubic-bezier(0.21, 0.61, 0.36, 1);
 }
 
+
 /*Keyframes*/
+
 @keyframes SwiftSlide {
     100% {
         margin-right: 0;
@@ -344,6 +352,7 @@ img {
     overflow: hidden;
     clip: rect(1px, 1px, 1px, 1px);
 }
+
 
 /* Profile Section */
 
@@ -430,6 +439,7 @@ img {
     font-weight: 600;
 }
 
+
 /* Gallery Section */
 
 .gallery {
@@ -492,107 +502,6 @@ img {
     object-fit: cover;
 }
 
-/* Loader */
-
-.loader {
-    width: 5rem;
-    height: 5rem;
-    border: 0.6rem solid #999;
-    border-bottom-color: transparent;
-    border-radius: 50%;
-    margin: 0 auto;
-    animation: loader 500ms linear infinite;
-}
-
-/* Media Query */
-
-@media screen and (max-width: 40rem) {
-    .profile {
-        display: flex;
-        flex-wrap: wrap;
-        padding: 4rem 0;
-    }
-
-    .profile::after {
-        display: none;
-    }
-
-    .profile-image,
-    .profile-user-settings,
-    .profile-bio,
-    .profile-stats {
-        float: none;
-        width: auto;
-    }
-
-    .profile-image img {
-        width: 7.7rem;
-    }
-
-    .profile-user-settings {
-        flex-basis: calc(100% - 10.7rem);
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 1rem;
-    }
-
-    .profile-user-name {
-        font-size: 2.2rem;
-    }
-
-    .profile-edit-btn {
-        order: 1;
-        padding: 0;
-        text-align: center;
-        margin-top: 1rem;
-    }
-
-    .profile-edit-btn {
-        margin-left: 0;
-    }
-
-    .profile-bio {
-        font-size: 1.4rem;
-        margin-top: 1.5rem;
-    }
-
-    .profile-edit-btn,
-    .profile-bio,
-    .profile-stats {
-        flex-basis: 100%;
-    }
-
-    .profile-stats {
-        order: 1;
-        margin-top: 1.5rem;
-    }
-
-    .profile-stats ul {
-        display: flex;
-        text-align: center;
-        padding: 1.2rem 0;
-        border-top: 0.1rem solid #dadada;
-        border-bottom: 0.1rem solid #dadada;
-    }
-
-    .profile-stats li {
-        font-size: 1.4rem;
-        flex: 1;
-        margin: 0;
-    }
-
-    .profile-stat-count {
-        display: block;
-    }
-}
-
-/* Spinner Animation */
-
-@keyframes loader {
-    to {
-        transform: rotate(360deg);
-    }
-}
 
 /*
 
@@ -610,17 +519,14 @@ Remove or comment-out the code block below to see how the browser will fall-back
         grid-column-gap: 3rem;
         align-items: center;
     }
-
     .profile-image {
         grid-row: 1 / -1;
     }
-
     .gallery {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
         grid-gap: 2rem;
     }
-
     .profile-image,
     .profile-user-settings,
     .profile-stats,
@@ -630,29 +536,24 @@ Remove or comment-out the code block below to see how the browser will fall-back
         width: auto;
         margin: 0;
     }
-
     @media (max-width: 40rem) {
         .profile {
             grid-template-columns: auto 1fr;
             grid-row-gap: 1.5rem;
         }
-
         .profile-image {
             grid-row: 1 / 2;
         }
-
         .profile-user-settings {
             display: grid;
             grid-template-columns: auto 1fr;
             grid-gap: 1rem;
         }
-
         .profile-edit-btn,
         .profile-stats,
         .profile-bio {
             grid-column: 1 / -1;
         }
-
         .profile-user-settings,
         .profile-edit-btn,
         .profile-settings-btn,
@@ -671,21 +572,21 @@ input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-    outline:0;
+    outline: 0;
     box-shadow: 0;
 }
 
 *:focus {
-    outline:0;
+    outline: 0;
     box-shadow: 0;
 }
 
-.comment.btn:focus{
+.comment.btn:focus {
     outline-color: #fff;
     outline: none;
 }
 
-.comment{
+.comment {
     border: 0 none transparent;
-    height:50px;
+    height: 50px;
 }
