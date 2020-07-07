@@ -13,6 +13,11 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.bio
 
+    @classmethod
+    def search_by_user(cls,search_term):
+        instauser = cls.objects.filter(user__icontains=search_term)
+        return instauser
+
 
 class Post(models.Model):
     image = CloudinaryField('image')
