@@ -78,9 +78,10 @@ INSTALLED_APPS = [
     'cloudinary',
 ]
 cloudinary.config (
-    cloud_name = 'ddirmp3b0n',
+    cloud_name = 'dirmp3b0n',
     api_key = '188189335364156',
-    api_secret = '9W11FSQ9FxxMmaJ9CGlRphprZlQ'
+    api_secret = '9W11FSQ9FxxMmaJ9CGlRphprZlQ',
+
 )
 
 MIDDLEWARE = [
