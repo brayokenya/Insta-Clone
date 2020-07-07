@@ -73,9 +73,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'instagram',
-    'cloudinary',
     'bootstrap4',
-    'django_filters'
+    'django_filters',
+    'cloudinary',
 ]
 cloudinary.config (
     cloud_name = config('CLOUD_NAME'),
