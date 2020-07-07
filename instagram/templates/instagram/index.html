@@ -7,7 +7,7 @@
         <div class="col-lg-8">
             <p>
                 <button style="border: solid 2px #333; padding: 1em;" class="btn btn-dark btn-block mb-4 mx-auto" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    <i class="fas fa-upload"></i> Upload
+                    <i class="fas fa-upload"></i> Post a Photo
                 </button>
             </p>
             <div class="collapse" id="collapseExample">
@@ -31,7 +31,7 @@
                 <img src="{{post.image.url}}" alt="" class="img-fluid">
                 <div class="card-body">
                     <a href="{%url 'like' post.id%}">
-                        <i class="far fa-heart fa-lg" style="font-size: 30px; margin-right:10px; color:#fa6161"></i>
+                        <i class="far fa-heart fa-lg" style="font-size: 30px; margin-right:10px; color:#d82626"></i>
                     </a>
                     <a href="{%url 'post' post.id%}">
                         <i class="far fa-comment fa-lg" style="font-size: 30px;"></i>

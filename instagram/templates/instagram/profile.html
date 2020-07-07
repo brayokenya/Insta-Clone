@@ -24,8 +24,8 @@
 
                 <ul>
                     <li><span class="profile-stat-count">{{posts|length}}</span> posts</li>
-                    <li><span class="profile-stat-count">{{profile.followers|length}}</span> followers</li>
-                    <li><span class="profile-stat-count">{{profile.following|length}}</span> following</li>
+                    <li><span class="profile-stat-count">{{user.profile.followers|length}}</span> followers</li>
+                    <li><span class="profile-stat-count">{{user.profile.following|length}}</span> following</li>
                 </ul>
 
             </div>
@@ -48,11 +48,12 @@
 <main>
 
     <div class="container">
-
+        <h3 style="text-align: center;">My Posts</h3>
         <div class="gallery">
             {%for post in posts%}
             <div class="gallery-item" tabindex="0">
-                <img src="{{post.image.cdn_url}}" class="gallery-image" alt="">
+
+                <img src="{{post.image.url}}" class="gallery-image" alt="">
 
                 <div class="gallery-item-info">
 

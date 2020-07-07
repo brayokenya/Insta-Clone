@@ -46,7 +46,7 @@ def post(request, id):
     post = Post.objects.get(id = id)
     comments = Comment.objects.filter(post__id=id)
     current_user = request.user
-    current_profile = UserProfile.objects.get(id = current_user.id)
+    current_profile = UserProfile.objects.get(post=id)
 
     if request.method == "POST":
         comment_form = CommentForm(request.POST)
