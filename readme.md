@@ -41,7 +41,7 @@ User can like a picture and leave a comment on it.
 * This program requires python3.+ (and pip) installed, a guide on how to install python on various platforms can be found [here](https://www.python.org/)
 * Once python is installed, install the folowing external libraries provided in the requirements.txt file using pip
 * Example: 
-    * **`pip install django==1.11.23`**
+    * **`pip install django==3.0.8`**
 * This project requires you to have a secret key from Cloudinary to facilitate cloud storage of uploaded images.
     * The secret key can be gotten by creating a free Cloudinary account, starting a new project and navigating to the dashboard
     * The key should be stored as an enviremnetal variable in an .env file as hown below
