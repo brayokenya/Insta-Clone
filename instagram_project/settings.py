@@ -44,6 +44,7 @@ DATABASES['default'].update(db_from_env)
 
 AUTH_PROFILE_MODULE = 'instagram.UserProfile'
 
+#
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
@@ -60,7 +61,7 @@ SECRET_KEY = 'bq2^ff3115q10@wac&ii6l9r0awcse=nx9v85wc_1#wp^xjl1a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -204,3 +205,20 @@ LOGOUT_REDIRECT_URL = "/accounts/login/"
 LOGIN_REDIRECT_URL = "/"
 REGISTRATION_OPEN= True
 ACCOUNT_ACTIVATION_DAYS = 5
+
+import logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'), #DJANGO DEBUG LEVEL
+        },
+    },
+}
